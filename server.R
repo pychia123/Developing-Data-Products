@@ -1,5 +1,5 @@
 library(shiny)
-diabetesRisk <- function(glucose,bmi,cholestrol) {
+HARisk <- function(glucose,bmi,cholestrol) {
 
   if (cholestrol <200) 
 {
@@ -14,14 +14,11 @@ diabetesRisk <- function(glucose,bmi,cholestrol) {
 }
 
 
-
-
-
 shinyServer(
 function(input, output) {
 output$inputValueGlucose <- renderPrint({input$glucose})
 output$inputValueBMI <- renderPrint({input$bmi})
 output$inputValueCholestrol <- renderPrint({input$cholestrol})
-output$prediction <- renderPrint({diabetesRisk(input$glucose, input$bmi,input$cholestrol)})
+output$prediction <- renderPrint({HARisk(input$glucose, input$bmi,input$cholestrol)})
 }
 )
